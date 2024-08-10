@@ -1,0 +1,36 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.commitment-card {
+    transition: all 0.3s ease;
+}
+
+.commitment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.status-indicator {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 9999px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+.status-completed {
+    background-color: #10B981;
+    color: white;
+}
+
+.status-in-progress {
+    background-color: #F59E0B;
+    color: white;
+}
+
+.status-failed {
+    background-color: #EF4444;
+    color: white;
+}

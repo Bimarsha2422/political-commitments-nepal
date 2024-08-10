@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribute - Nepal Political Accountability Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100">
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4">
+            <nav class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold">Nepal Political Accountability Tracker</h1>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="hover:text-blue-200 transition duration-300">Home</a></li>
+                    <li><a href="contribute.html" class="hover:text-blue-200 transition duration-300">Contribute</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-12 px-4">
+        <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Contribute a Political Commitment</h2>
+        <form id="contributionForm" class="max-w-2xl mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                    Politician Name
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="position">
+                    Position
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="position" type="text" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="commitment">
+                    Commitment
+                </label>
+                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="commitment" required></textarea>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="announcedDate">
+                    Announced Date
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="announcedDate" type="date" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="timeframe">
+                    Timeframe (in days)
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="timeframe" type="number" min="1" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="evidence">
+                    Evidence (News link or screenshot)
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="evidence" type="text" required>
+            </div>
+            <div class="flex items-center justify-between">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    Submit Contribution
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Nepal Political Accountability Tracker. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contributionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                position: document.getElementById('position').value,
+                commitment: document.getElementById('commitment').value,
+                announcedDate: document.getElementById('announcedDate').value,
+                timeframe: document.getElementById('timeframe').value,
+                evidence: document.getElementById('evidence').value
+            };
+
+            // Here you would typically send this data to your server
+            // For now, we'll just log it to the console
+            console.log('Form submitted:', formData);
+
+            // You can add code here to send the data to your server using fetch or XMLHttpRequest
+            // For example:
+            // fetch('/api/contribute', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(formData),
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     console.log('Success:', data);
+            //     alert('Thank you for your contribution!');
+            // })
+            // .catch((error) => {
+            //     console.error('Error:', error);
+            //     alert('There was an error submitting your contribution. Please try again.');
+            // });
+
+            alert('Thank you for your contribution! It has been submitted for review.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

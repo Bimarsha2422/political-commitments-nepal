@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commitment Log - Nepal Political Accountability Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100">
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4">
+            <nav class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold">Nepal Political Accountability Tracker</h1>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="hover:text-blue-200 transition duration-300">Home</a></li>
+                    <li><a href="contribute.html" class="hover:text-blue-200 transition duration-300">Contribute</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-12 px-4">
+        <div id="logContent" class="bg-white rounded-xl shadow-md p-8 border border-gray-200">
+            <!-- Log content will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Nepal Political Accountability Tracker. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const logId = urlParams.get('id');
+            if (logId) {
+                fetchLogDetails(logId);
+            } else {
+                document.getElementById('logContent').innerHTML = '<p class="text-center text-gray-700">Log not found.</p>';
+            }
+        });
+
+        async function fetchLogDetails(id) {
+            try {
+                const response = await fetch('commitments.json');
+                const commitments = await response.json();
+                const log = commitments.find(c => c.id === parseInt(id));
+                if (log) {
+                    renderLogDetails(log);
+                } else {
+                    document.getElementById('logContent').innerHTML = '<p class="text-center text-gray-700">Log not found.</p>';
+                }
+            } catch (error) {
+                console.error('Error fetching log details:', error);
+            }
+        }
+
+        function renderLogDetails(log) {
+            const logContent = document.getElementById('logContent');
+            const portraitUrl = log.image ? log.image : 'default-avatar.png';
+            const announcedDate = new Date(log.announcedDate);
+            const deadline = new Date(announcedDate.getTime() + parseInt(log.timeframe) * 24 * 60 * 60 * 1000);
+
+            logContent.innerHTML = `
+                <div class="flex items-center mb-8">
+                    <img src="${portraitUrl}" alt="${log.name}" class="w-32 h-32 rounded-full mr-8 object-cover">
+                    <div>
+                        <h2 class="text-3xl font-bold text-blue-800 mb-2">${log.name}</h2>
+                        <p class="text-xl text-gray-600">${log.position}</p>
+                        <span class="status-indicator ${getStatusClass(log.status)} mt-2">${log.status}</span>
+                    </div>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">Commitment:</h3>
+                    <p class="text-lg text-gray-700">${log.commitment}</p>
+                </div>
+                <div class="mb-8">
+                    <h4 class="font-bold text-gray-700 mb-2">Time Remaining:</h4>
+                    <div class="bg-gray-200 rounded-full h-4 mb-2">
+                        <div class="bg-blue-600 h-4 rounded-full" style="width: 0%"></div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="timer text-2xl font-bold text-blue-600">00:00:00:00</span>
+                        <span class="text-gray-500">Deadline: ${deadline.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <div>
+                        <h4 class="font-bold text-gray-700">Announced Date:</h4>
+                        <p>${announcedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-700">Deadline:</h4>
+                        <p>${deadline.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                    </div>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">Details:</h3>
+                    <p class="text-gray-700">${log.details}</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Evidence:</h3>
+                    <ul class="list-disc pl-5">
+                        ${log.evidence.map(e => `
+                            <li class="mb-2">
+                                <a href="${e.link}" target="_blank" class="text-blue-600 hover:underline">${e.description}</a>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+            updateTimer(logContent, deadline, announcedDate);
+        }
+
+        function getStatusClass(status) {
+            switch (status.toLowerCase()) {
+                case 'completed':
+                    return 'status-completed';
+                case 'in progress':
+                    return 'status-in-progress';
+                case 'failed':
+                    return 'status-failed';
+                default:
+                    return '';
+            }
+        }
+
+        function updateTimer(container, deadline, announcedDate) {
+            const timerElement = container.querySelector('.timer');
+            const progressBar = container.querySelector('.bg-blue-600');
+            
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = deadline.getTime() - now;
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                timerElement.textContent = `${days.toString().padStart(2, '0')}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                const totalTime = deadline.getTime() - announcedDate.getTime();
+                const progress = ((totalTime - distance) / totalTime) * 100;
+                progressBar.style.width = `${progress}%`;
+                
+                if (distance < 0) {
+                    clearInterval(timer);
+                    timerElement.textContent = "EXPIRED";
+                    timerElement.classList.remove('text-blue-600');
+                    timerElement.classList.add('text-red-600');
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
