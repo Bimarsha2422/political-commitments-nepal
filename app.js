@@ -81,7 +81,7 @@ function createCommitmentCard(commitment) {
                 <p class="text-gray-600 text-sm">${commitment.position}</p>
             </div>
         </div>
-        <p class="mb-4 text-gray-700 text-sm">"${commitment.commitment}"</p>
+        <p class="mb-4 text-gray-700 text-sm">${commitment.commitment}</p>
         <div class="bg-gray-200 rounded-full h-2 mb-2">
             <div class="bg-blue-600 h-2 rounded-full" style="width: 0%"></div>
         </div>
