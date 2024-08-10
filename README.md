@@ -1,0 +1,1 @@
+The Nepal Political Accountability Tracker is a web-based platform designed to monitor and track political commitments made by Nepalese politicians. This tool aims to enhance transparency and accountability in Nepal's political landscape by allowing citizens to stay informed about promises made by their elected officials and track their progress.
