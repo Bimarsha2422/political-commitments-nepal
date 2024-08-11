@@ -6,7 +6,7 @@
       "party": "Communist Party of Nepal (Unified Marxist–Leninist)",
       "socialMedia": {
         "twitter": "@kpsharmaoli",
-        "facebook": "kpsharmaoli"
+        "facebook": "UMLprezKPSharmaOli"
       },
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/KP_Sharma_Oli.png/440px-KP_Sharma_Oli.png",
       "commitments": [
@@ -30,7 +30,28 @@
             }
           ],
           "additional_keys": {}
-        }
+        }, 
+        {
+            "id": 3,
+            "commitment": "Pani Jahaaj ko ticket kaatne readu vayera basne",
+            "timeframe": 1500,
+            "announcedDate": "2023-07-15",
+            "status": "In Progress",
+            "details": "Pani Jahaaj ko ticket kaatne readu vayera basne..",
+            "evidence": [
+              {
+                "type": "image",
+                "link": "../assets/images/floodlight.jpg",
+                "description": "Sample Link 1"
+              },
+              {
+                "type": "news",
+                "link": "https://kathmandupost.com/national/2024/07/15/government-decides-to-upgrade-tu-cricket-ground",
+                "description": "Sample link 2"
+              }
+            ],
+            "additional_keys": {}
+          }
       ]
     },
     {
@@ -39,8 +60,8 @@
       "position": "Health Minister",
       "party": "Nepali Congress",
       "socialMedia": {
-        "twitter": "@pradippaudel",
-        "facebook": "pradippaudel"
+        "twitter": "@paudelpradipNC",
+        "facebook": "pradippaudelnc"
       },
       "image": "https://en.setopati.com/uploads/posts/725X460/Pradip-Paudel1691928676.jpg",
       "commitments": [

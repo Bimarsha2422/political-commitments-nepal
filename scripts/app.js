@@ -116,6 +116,44 @@ function renderPoliticianDetails(politician) {
     document.getElementById('collapseAll').addEventListener('click', collapseAllCommitments);
 }
 
+// function createCommitmentElement(commitment) {
+//     const element = document.createElement('div');
+//     element.className = 'commitment-item mb-4 border-b pb-4';
+    
+//     const deadlineDate = new Date(commitment.announcedDate);
+//     deadlineDate.setDate(deadlineDate.getDate() + commitment.timeframe);
+    
+//     element.innerHTML = `
+    
+//         <h3 class="text-xl font-bold cursor-pointer flex items-center justify-between commitment-header hover:bg-gray-100 p-2 rounded transition duration-300" onclick="toggleCommitment(this)">
+//             <span>${commitment.commitment}</span>
+//             <span class="text-sm font-normal ml-2 status-indicator ${getStatusClass(commitment.status)}">${commitment.status}</span>
+//             <i class="fas fa-chevron-down text-gray-500"></i>
+//         </h3>
+//         <div class="commitment-details hidden mt-2">
+//             <div class="bg-gray-200 rounded-full h-2 mb-2">
+//                 <div class="bg-blue-600 h-2 rounded-full" style="width: 0%"></div>
+//             </div>
+//             <div class="flex justify-between items-center text-sm mb-2">
+//                 <span class="timer text-blue-600 font-bold">00:00:00:00</span>
+//             </div>
+//             <p><strong>Announced Date:</strong> ${new Date(commitment.announcedDate).toLocaleDateString()}</p>
+//             <p><strong>Deadline:</strong> ${deadlineDate.toLocaleDateString()}</p>
+//             <p><strong>Details:</strong> ${commitment.details}</p>
+//             ${renderAdditionalKeys(commitment.additional_keys)}
+//             <h4 class="font-bold mt-2">Evidence:</h4>
+//             <ul class="list-disc pl-5">
+//                 ${commitment.evidence.map(e => `<li><a href="${e.link}" target="_blank" class="text-blue-600 hover:underline">${e.description}</a></li>`).join('')}
+//             </ul>
+//         </div>
+//     `;
+
+//     updateTimer(element.querySelector('.timer'), deadlineDate, new Date(commitment.announcedDate));
+//     updateProgressBar(element.querySelector('.bg-blue-600'), new Date(commitment.announcedDate), deadlineDate);
+
+//     return element;
+// }
+
 function createCommitmentElement(commitment) {
     const element = document.createElement('div');
     element.className = 'commitment-item mb-4 border-b pb-4';
@@ -124,14 +162,18 @@ function createCommitmentElement(commitment) {
     deadlineDate.setDate(deadlineDate.getDate() + commitment.timeframe);
     
     element.innerHTML = `
-        <h3 class="text-xl font-bold cursor-pointer flex items-center justify-between commitment-header hover:bg-gray-100 p-2 rounded transition duration-300" onclick="toggleCommitment(this)">
-            <span>${commitment.commitment}</span>
-            <span class="text-sm font-normal ml-2 status-indicator ${getStatusClass(commitment.status)}">${commitment.status}</span>
-            <i class="fas fa-chevron-down text-gray-500"></i>
-        </h3>
+        <div class="commitment-header cursor-pointer flex items-start justify-between hover:bg-gray-100 p-2 rounded transition duration-300" onclick="toggleCommitment(this)">
+            <div class="flex-grow pr-4">
+                <h3 class="text-xl font-bold">${commitment.commitment}</h3>
+            </div>
+            <div class="flex-shrink-0 flex items-center">
+                <span class="text-sm font-normal mr-2 status-indicator ${getStatusClass(commitment.status)}">${commitment.status}</span>
+                <i class="fas fa-chevron-down text-gray-500"></i>
+            </div>
+        </div>
         <div class="commitment-details hidden mt-2">
             <div class="bg-gray-200 rounded-full h-2 mb-2">
-                <div class="bg-blue-600 h-2 rounded-full" style="width: 0%"></div>
+                <div class="progress-bar bg-blue-600 h-2 rounded-full" style="width: 0%"></div>
             </div>
             <div class="flex justify-between items-center text-sm mb-2">
                 <span class="timer text-blue-600 font-bold">00:00:00:00</span>
@@ -147,8 +189,11 @@ function createCommitmentElement(commitment) {
         </div>
     `;
 
-    updateTimer(element.querySelector('.timer'), deadlineDate, new Date(commitment.announcedDate));
-    updateProgressBar(element.querySelector('.bg-blue-600'), new Date(commitment.announcedDate), deadlineDate);
+    const timerElement = element.querySelector('.timer');
+    const progressBarElement = element.querySelector('.progress-bar');
+
+    updateTimer(timerElement, deadlineDate, new Date(commitment.announcedDate));
+    updateProgressBar(progressBarElement, new Date(commitment.announcedDate), deadlineDate);
 
     return element;
 }
@@ -227,6 +272,11 @@ function updateTimer(timerElement, deadline, announcedDate) {
 }
 
 function updateProgressBar(progressBar, startDate, endDate) {
+    if (!progressBar) {
+        console.error('Progress bar element not found');
+        return;
+    }
+
     const updateProgress = () => {
         const now = new Date().getTime();
         const total = endDate - startDate;
