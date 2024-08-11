@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchCommitments() {
     try {
-        const response = await fetch('commitments.json');
+        const response = await fetch('../data/commitments.json');
         const commitments = await response.json();
         renderCommitments(commitments);
     } catch (error) {
@@ -25,9 +25,9 @@ function renderCommitments(commitments) {
 function createCommitmentCard(commitment) {
     const card = document.createElement('div');
     card.className = 'commitment-card bg-white rounded-xl shadow-md p-4 border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow duration-300';
-    card.onclick = () => window.location.href = `log.html?id=${commitment.id}`;
+    card.onclick = () => window.location.href = `../pages/log.html?id=${commitment.id}`;
     
-    const portraitUrl = commitment.image ? commitment.image : 'default-avatar.png';
+    const portraitUrl = commitment.image ? commitment.image : '../assets/images/default-avatar.png';
     
     card.innerHTML = `
         <div class="flex items-center mb-4">
@@ -69,9 +69,9 @@ function formatDeadline(announcedDate, timeframe) {
 function createCommitmentCard(commitment) {
     const card = document.createElement('div');
     card.className = 'commitment-card bg-white rounded-xl shadow-md p-4 border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow duration-300';
-    card.onclick = () => window.location.href = `log.html?id=${commitment.id}`;
+    card.onclick = () => window.location.href = `../pages/log.html?id=${commitment.id}`;
     
-    const portraitUrl = commitment.image ? commitment.image : 'default-avatar.png';
+    const portraitUrl = commitment.image ? commitment.image : '../assets/images/default-avatar.png';
     
     card.innerHTML = `
         <div class="flex items-center mb-4">
