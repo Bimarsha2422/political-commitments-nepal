@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchCommitments() {
     try {
-        const response = await fetch('../data/commitments.json');
+        const response = await fetch('/data/commitments.json');
         const commitments = await response.json();
         renderCommitments(commitments);
     } catch (error) {
