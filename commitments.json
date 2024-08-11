@@ -14,6 +14,11 @@
                 "type": "image",
                 "link": "floodlight.jpg",
                 "description": "Screenshot of KP Oli's Facebook post"
+            }, 
+            {
+                "type": "news",
+                "link": "https://kathmandupost.com/national/2024/07/15/government-decides-to-upgrade-tu-cricket-ground",
+                "description": "Government decides to upgrade TU cricket ground" 
             }
         ]
     },
@@ -21,7 +26,7 @@
         "id": 2,
         "name": "Pradip Paudel",
         "position": "Health Minister",
-        "commitment": "Remove lines from hospitals",
+        "commitment": "End waiting lines at public hospitals",
         "timeframe": 31,
         "announcedDate": "2024-07-14",
         "status": "In Progress",
@@ -32,6 +37,11 @@
                 "type": "news",
                 "link": "https://ukeraa.com/news/detail/149784/",
                 "description": "एक महिनाभित्र संघीय अस्पतालहरूमा लाइन बस्नु नपर्ने व्यवस्था गर्ने मन्त्री पौडेलको प्रतिबद्धता"
+            }, 
+            {
+                "type": "news",
+                "link": "https://english.khabarhub.com/2024/15/365587/",
+                "description": "Health Minister Paudel vows to end waiting lines at public hospitals"
             }
         ]
     }
