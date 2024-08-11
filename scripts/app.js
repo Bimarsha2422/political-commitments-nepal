@@ -29,7 +29,7 @@ function renderPoliticians(politicians) {
 function createPoliticianCard(politician) {
     const card = document.createElement('div');
     card.className = 'politician-card bg-white rounded-xl shadow-md p-4 border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow duration-300';
-    card.onclick = () => window.location.href = `/pages/log.html?id=${politician.id}`;
+    card.onclick = () => window.location.href = `/political-commitments-nepal/pages/log.html?id=${politician.id}`;
     
     const portraitUrl = politician.image ? politician.image : '../assets/images/default-avatar.png';
     
