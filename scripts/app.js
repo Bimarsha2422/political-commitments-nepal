@@ -25,7 +25,7 @@ function renderCommitments(commitments) {
 function createCommitmentCard(commitment) {
     const card = document.createElement('div');
     card.className = 'commitment-card bg-white rounded-xl shadow-md p-4 border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow duration-300';
-    card.onclick = () => window.location.href = `/pages/log.html?id=${commitment.id}`;
+    card.onclick = () => window.location.href = `/political-commitments-nepal/pages/log.html?id=${commitment.id}`;
     
     const portraitUrl = commitment.image ? commitment.image : '../assets/images/default-avatar.png';
     
@@ -69,7 +69,7 @@ function formatDeadline(announcedDate, timeframe) {
 function createCommitmentCard(commitment) {
     const card = document.createElement('div');
     card.className = 'commitment-card bg-white rounded-xl shadow-md p-4 border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow duration-300';
-    card.onclick = () => window.location.href = `../pages/log.html?id=${commitment.id}`;
+    card.onclick = () => window.location.href = `/political-commitments-nepal/pages/log.html?id=${commitment.id}`;
     
     const portraitUrl = commitment.image ? commitment.image : '../assets/images/default-avatar.png';
     
