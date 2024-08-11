@@ -2,11 +2,11 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
-.commitment-card {
+.politician-card {
     transition: all 0.3s ease;
 }
 
-.commitment-card:hover {
+.politician-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
@@ -33,4 +33,24 @@ body {
 .status-failed {
     background-color: #EF4444;
     color: white;
+}
+
+.commitment-header {
+    transition: all 0.3s ease;
+}
+
+.commitment-header:hover {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.commitment-details {
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.commitment-details:not(.hidden) {
+    max-height: 1000px;
+    opacity: 1;
 }

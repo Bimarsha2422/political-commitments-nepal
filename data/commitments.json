@@ -1,48 +1,70 @@
 [
     {
-        "id": 1,
-        "name": "KP Sharma Oli",
-        "position": "Prime Minister",
-        "commitment": "Build floodlights in TU Cricket Stadium",
-        "timeframe": 301,
-        "announcedDate": "2024-07-15",
-        "status": "In Progress",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/KP_Sharma_Oli.png/440px-KP_Sharma_Oli.png",
-        "details": "Prime Minister KP Sharma Oli announced the plan to install floodlights at the TU Cricket Stadium, aiming to enhance Nepal's cricket infrastructure.",
-        "evidence": [
+      "id": 1,
+      "name": "KP Sharma Oli",
+      "position": "Prime Minister",
+      "party": "Communist Party of Nepal (Unified Marxist–Leninist)",
+      "socialMedia": {
+        "twitter": "@kpsharmaoli",
+        "facebook": "kpsharmaoli"
+      },
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/KP_Sharma_Oli.png/440px-KP_Sharma_Oli.png",
+      "commitments": [
+        {
+          "id": 1,
+          "commitment": "Build floodlights in TU Cricket Stadium",
+          "timeframe": 301,
+          "announcedDate": "2024-07-15",
+          "status": "In Progress",
+          "details": "Prime Minister KP Sharma Oli announced the plan to install floodlights at the TU Cricket Stadium, aiming to enhance Nepal's cricket infrastructure.",
+          "evidence": [
             {
-                "type": "image",
-                "link": "../assets/images/floodlight.jpg",
-                "description": "Screenshot of KP Oli's Facebook post"
-            }, 
+              "type": "image",
+              "link": "../assets/images/floodlight.jpg",
+              "description": "Screenshot of KP Oli's Facebook post"
+            },
             {
-                "type": "news",
-                "link": "https://kathmandupost.com/national/2024/07/15/government-decides-to-upgrade-tu-cricket-ground",
-                "description": "Government decides to upgrade TU cricket ground" 
+              "type": "news",
+              "link": "https://kathmandupost.com/national/2024/07/15/government-decides-to-upgrade-tu-cricket-ground",
+              "description": "Government decides to upgrade TU cricket ground"
             }
-        ]
+          ],
+          "additional_keys": {}
+        }
+      ]
     },
     {
-        "id": 2,
-        "name": "Pradip Paudel",
-        "position": "Health Minister",
-        "commitment": "End waiting lines at public hospitals",
-        "timeframe": 32,
-        "announcedDate": "2024-07-14",
-        "status": "In Progress",
-        "image": "https://en.setopati.com/uploads/posts/725X460/Pradip-Paudel1691928676.jpg",
-        "details": "Health Minister Pradip Paudel committed to implementing a new system to reduce waiting times and remove long lines from hospitals across Nepal.",
-        "evidence": [
+      "id": 2,
+      "name": "Pradip Paudel",
+      "position": "Health Minister",
+      "party": "Nepali Congress",
+      "socialMedia": {
+        "twitter": "@pradippaudel",
+        "facebook": "pradippaudel"
+      },
+      "image": "https://en.setopati.com/uploads/posts/725X460/Pradip-Paudel1691928676.jpg",
+      "commitments": [
+        {
+          "id": 2,
+          "commitment": "End waiting lines at public hospitals",
+          "timeframe": 32,
+          "announcedDate": "2024-07-14",
+          "status": "In Progress",
+          "details": "Health Minister Pradip Paudel committed to implementing a new system to reduce waiting times and remove long lines from hospitals across Nepal.",
+          "evidence": [
             {
-                "type": "news",
-                "link": "https://ukeraa.com/news/detail/149784/",
-                "description": "एक महिनाभित्र संघीय अस्पतालहरूमा लाइन बस्नु नपर्ने व्यवस्था गर्ने मन्त्री पौडेलको प्रतिबद्धता"
-            }, 
+              "type": "news",
+              "link": "https://ukeraa.com/news/detail/149784/",
+              "description": "एक महिनाभित्र संघीय अस्पतालहरूमा लाइन बस्नु नपर्ने व्यवस्था गर्ने मन्त्री पौडेलको प्रतिबद्धता"
+            },
             {
-                "type": "news",
-                "link": "https://english.khabarhub.com/2024/15/365587/",
-                "description": "Health Minister Paudel vows to end waiting lines at public hospitals"
+              "type": "news",
+              "link": "https://english.khabarhub.com/2024/15/365587/",
+              "description": "Health Minister Paudel vows to end waiting lines at public hospitals"
             }
-        ]
+          ],
+          "additional_keys": {}
+        }
+      ]
     }
-]
+  ]
