@@ -9,18 +9,15 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body class="bg-gray-100">
-    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-6 shadow-lg">
-        <div class="container mx-auto px-4">
-            <nav class="flex justify-between items-center">
-                <h1 class="text-3xl font-bold">Nepal Political Accountability Tracker</h1>
-                <ul class="flex space-x-6">
-                    <li><a href="./index.html" class="hover:text-blue-200 transition duration-300">Home</a></li>
-                    <li><a href="./pages/contribution/contribute.html" class="hover:text-blue-200 transition duration-300">Contribute</a></li>
-                    <li><a href="./pages/about.html" class="hover:text-blue-200 transition duration-300">About</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
+    <script>
+        // JavaScript to load the header
+        fetch('/pages/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        });
+    </script>
 
     <main class="container mx-auto mt-12 px-4">
         <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Current Political Commitments</h2>
