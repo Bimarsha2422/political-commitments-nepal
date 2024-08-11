@@ -47,7 +47,7 @@
 
         async function fetchLogDetails(id) {
             try {
-                const response = await fetch('../data/commitments.json');
+                const response = await fetch('./../data/commitments.json');
                 const commitments = await response.json();
                 const log = commitments.find(c => c.id === parseInt(id));
                 if (log) {
