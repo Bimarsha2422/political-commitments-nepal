@@ -9,18 +9,23 @@
     <link rel="stylesheet" href="../../styles/styles.css">
 </head>
 <body class="bg-gray-100">
-    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-6 shadow-lg">
+
+      <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-4 md:py-6 shadow-lg">
         <div class="container mx-auto px-4">
-            <nav class="flex justify-between items-center">
-                <h1 class="text-3xl font-bold">Nepal Political Accountability Tracker</h1>
-                <ul class="flex space-x-6">
-                    <li><a href="../../index.html" class="hover:text-blue-200 transition duration-300">Home</a></li>
+          <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+            <h1 id="nepal-political-accountability-tracker" class="text-2xl md:text-3xl font-bold mb-4 md:mb-0">
+              Nepal Political Accountability Tracker
+            </h1>
+            <nav>
+              <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+                <li><a href="../../index.html" class="hover:text-blue-200 transition duration-300">Home</a></li>
                     <li><a href="contribute.html" class="hover:text-blue-200 transition duration-300">Contribute</a></li>
                     <li><a href="../about.html" class="hover:text-blue-200 transition duration-300">About</a></li>
                 </ul>
             </nav>
+          </div>
         </div>
-    </header>
+      </header>
 
     <main class="container mx-auto mt-12 px-4" role="main">
         <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Contribute a Political Commitment</h2>
@@ -30,38 +35,38 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Politician's Name *</label>
-                        <input type="text" id="name" name="entry.1737140296" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input type="text" id="name" name="entry.1067390235" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     </div>
                     <div>
                         <label for="position" class="block text-gray-700 text-sm font-bold mb-2">Position/Role *</label>
-                        <input type="text" id="position" name="entry.598023907" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input type="text" id="position" name="entry.1234913029" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     </div>
                 </div>
                 
                 <div>
                     <label for="commitment" class="block text-gray-700 text-sm font-bold mb-2">Commitment Description *</label>
-                    <textarea id="commitment" name="entry.670896805" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="4"></textarea>
+                    <textarea id="commitment" name="entry.598457627" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="4"></textarea>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Date of Commitment</label>
-                        <input type="date" id="date" name="entry.380568903" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input type="date" id="date" name="entry.835601481" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     </div>
                     <div>
                         <label for="timeframe" class="block text-gray-700 text-sm font-bold mb-2">Time Needed to Fulfill</label>
-                        <input type="text" id="timeframe" name="entry.1867908009" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input type="text" id="timeframe" name="entry.1396431076" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     </div>
                 </div>
                 
                 <div>
                     <label for="evidence" class="block text-gray-700 text-sm font-bold mb-2">Supporting Evidence *</label>
-                    <textarea id="evidence" name="entry.1371760095" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="3"></textarea>
+                    <textarea id="evidence" name="entry.448583662" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="3"></textarea>
                 </div>
                 
                 <div>
                     <label for="notes" class="block text-gray-700 text-sm font-bold mb-2">Additional Notes</label>
-                    <textarea id="notes" name="entry.1726705989" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="3"></textarea>
+                    <textarea id="notes" name="entry.418467923" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="3"></textarea>
                 </div>
                 
                 <div class="flex items-center justify-between">
